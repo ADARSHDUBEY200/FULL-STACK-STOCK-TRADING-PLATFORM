@@ -1,59 +1,36 @@
 export const watchlist = [
-  {
-    name: "INFY",
-    price: 1555.45,
-    percent: "-1.60%",
-    isDown: true,
-  },
-  {
-    name: "ONGC",
-    price: 116.8,
-    percent: "-0.09%",
-    isDown: true,
-  },
-  {
-    name: "TCS",
-    price: 3194.8,
-    percent: "-0.25%",
-    isDown: true,
-  },
-  {
-    name: "KPITTECH",
-    price: 266.45,
-    percent: "3.54%",
-    isDown: false,
-  },
-  {
-    name: "QUICKHEAL",
-    price: 308.55,
-    percent: "-0.15%",
-    isDown: true,
-  },
-  {
-    name: "WIPRO",
-    price: 577.75,
-    percent: "0.32%",
-    isDown: false,
-  },
-  {
-    name: "M&M",
-    price: 779.8,
-    percent: "-0.01%",
-    isDown: true,
-  },
-  {
-    name: "RELIANCE",
-    price: 2112.4,
-    percent: "1.44%",
-    isDown: false,
-  },
-  {
-    name: "HUL",
-    price: 512.4,
-    percent: "1.04%",
-    isDown: false,
-  },
-];
+  { name: "SBIN", percent: "+5.90%", isDown: false, qty: 21, avg: 545.3, price: 577.45, net: "+2.24%", day: "+4.71%" },
+  { name: "INFY", percent: "+1.59%", isDown: false, qty: 42, avg: 1448.77, price: 1471.75, net: "+0.98%", day: "-0.34%" },
+  { name: "SUNPHARMA", percent: "-0.48%", isDown: true, qty: 41, avg: 2499.37, price: 2487.42, net: "-2.41%", day: "-1.32%" },
+  { name: "COALINDIA", percent: "+7.72%", isDown: false, qty: 16, avg: 193.71, price: 208.67, net: "-0.87%", day: "+0.26%" },
+  { name: "NTPC", percent: "-2.06%", isDown: true, qty: 33, avg: 635.29, price: 622.21, net: "-0.01%", day: "-4.05%" },
+  { name: "TITAN", percent: "+0.31%", isDown: false, qty: 46, avg: 2120.83, price: 2127.47, net: "+3.52%", day: "-2.31%" },
+  { name: "DIVISLAB", percent: "-3.95%", isDown: true, qty: 7, avg: 887.71, price: 852.65, net: "+4.25%", day: "+2.35%" },
+  { name: "SBIN", percent: "-4.45%", isDown: true, qty: 22, avg: 2375.59, price: 2269.99, net: "+1.15%", day: "-4.97%" },
+  { name: "NTPC", percent: "+0.01%", isDown: false, qty: 47, avg: 1974.08, price: 1974.22, net: "+2.17%", day: "+0.77%" },
+  { name: "ITC", percent: "+4.53%", isDown: false, qty: 32, avg: 795.79, price: 831.87, net: "-1.53%", day: "+0.39%" },
+  { name: "ASIANPAINT", percent: "+3.98%", isDown: false, qty: 13, avg: 227.25, price: 236.3, net: "+0.97%", day: "+4.13%" },
+  { name: "ICICIBANK", percent: "+3.15%", isDown: false, qty: 47, avg: 1298.08, price: 1338.91, net: "-2.40%", day: "-0.06%" },
+  { name: "MARUTI", percent: "+4.50%", isDown: false, qty: 48, avg: 1323.84, price: 1383.37, net: "+4.61%", day: "-4.01%" },
+  { name: "HCLTECH", percent: "+5.26%", isDown: false, qty: 21, avg: 2930.94, price: 3085.0, net: "-2.35%", day: "-2.86%" },
+  { name: "ONGC", percent: "-3.57%", isDown: true, qty: 3, avg: 2142.79, price: 2066.39, net: "-0.81%", day: "+2.61%" },
+  { name: "POWERGRID", percent: "+7.37%", isDown: false, qty: 42, avg: 386.15, price: 414.6, net: "-3.38%", day: "-0.18%" },
+  { name: "HINDUNILVR", percent: "-3.67%", isDown: true, qty: 41, avg: 2205.31, price: 2124.33, net: "+1.83%", day: "-1.94%" },
+  { name: "MARUTI", percent: "+9.07%", isDown: false, qty: 5, avg: 1205.61, price: 1314.91, net: "-4.25%", day: "+4.48%" },
+  { name: "BAJAJFINSV", percent: "-1.10%", isDown: true, qty: 39, avg: 2384.89, price: 2358.55, net: "-0.39%", day: "-4.26%" },
+  { name: "TECHM", percent: "-0.42%", isDown: true, qty: 29, avg: 2950.23, price: 2937.98, net: "-4.13%", day: "+3.43%" },
+  { name: "DIVISLAB", percent: "+8.78%", isDown: false, qty: 44, avg: 542.92, price: 590.59, net: "-1.55%", day: "-1.88%" },
+  { name: "NESTLEIND", percent: "-4.80%", isDown: true, qty: 43, avg: 929.31, price: 884.68, net: "+3.87%", day: "+3.75%" },
+  { name: "COALINDIA", percent: "+1.24%", isDown: false, qty: 44, avg: 2032.62, price: 2057.78, net: "-3.90%", day: "+3.07%" },
+  { name: "LT", percent: "+1.99%", isDown: false, qty: 32, avg: 2174.37, price: 2217.54, net: "-0.52%", day: "+4.39%" },
+  { name: "BHARTIARTL", percent: "+9.05%", isDown: false, qty: 50, avg: 2900.0, price: 3162.34, net: "-2.99%", day: "-2.27%" },
+  { name: "DIVISLAB", percent: "+2.21%", isDown: false, qty: 41, avg: 2890.04, price: 2953.99, net: "+2.65%", day: "-1.32%" },
+  { name: "ONGC", percent: "+5.87%", isDown: false, qty: 20, avg: 877.49, price: 928.97, net: "+0.37%", day: "+4.36%" },
+  { name: "INFY", percent: "+7.46%", isDown: false, qty: 12, avg: 522.15, price: 561.11, net: "-0.95%", day: "+2.44%" },
+  { name: "DIVISLAB", percent: "+8.54%", isDown: false, qty: 20, avg: 319.56, price: 346.84, net: "-4.89%", day: "-0.57%" },
+  { name: "TITAN", percent: "+2.43%", isDown: false, qty: 44, avg: 2684.17, price: 2749.27, net: "-2.01%", day: "+4.25%" }
+]
+  ;
 
 // holdings
 export const holdings = [

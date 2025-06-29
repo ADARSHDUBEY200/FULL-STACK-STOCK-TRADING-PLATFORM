@@ -12,6 +12,29 @@ code {
     monospace;
 }
 
+
+/*-----------------------------------------STYLING FOR THE CHATBOT --------------------------------*/
+.copilotKitHeader {
+  background-color: #488bf0 !important;
+  color: white !important;
+}
+
+.copilotKitButton {
+  background-color: #0d6efd !important;
+  border: #0d6efd !important;
+}
+
+.copilotKitWindow {
+  width: 35vw !important;
+}
+
+.copilotKitUserMessage {
+  background-color: #0d6efd !important;
+  color: white !important;
+}
+
+
+/* ----------------------------------------------------------------------------------------------- */
 /* -------------------------------STYLING FOR THE TOPBAR OF THE PAGE-------------------------------*/
 
 .topbar-container {
@@ -50,8 +73,8 @@ code {
   justify-content: space-evenly;
 }
 
-.nifty > *,
-.sensex > * {
+.nifty>*,
+.sensex>* {
   margin-right: 8px;
 }
 
@@ -124,6 +147,12 @@ hr {
 }
 
 .profile {
+  display: inline-block;
+  position: relative;
+
+}
+
+.profile .content {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -150,6 +179,26 @@ hr {
 .profile .username {
   font-size: 0.8rem;
   font-weight: 300;
+}
+
+
+
+.profile .dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: #f9f9f9;
+  right: 0;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1000;
+}
+
+.dropdown-content .drop-main-content{
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* sudo selectors */
@@ -277,11 +326,11 @@ hr {
 }
 
 .order-table tr td:first-child p {
-    background: rgb(255, 197, 197);
-    color: rgb(233, 120, 120);
-    width: 50%;
-    text-align: center;
-    border-radius: 2px;
+  background: rgb(255, 197, 197);
+  color: rgb(233, 120, 120);
+  width: 50%;
+  text-align: center;
+  border-radius: 2px;
 }
 
 .order-table tr td:last-child {
@@ -373,6 +422,7 @@ hr {
 .row .col:last-child h5 {
   color: rgb(72, 194, 55);
 }
+
 /*-------------------- STYLING OF THE SUMMARY SECTION OF THE DASHBOPARD -------------------------- */
 .username h6 {
   font-size: 1.5rem;
@@ -595,7 +645,7 @@ hr {
   justify-content: space-between;
 }
 
-.table .data > * {
+.table .data>* {
   margin-bottom: 5%;
 }
 
@@ -631,7 +681,7 @@ hr {
   padding: 15px 20px;
   font-size: 0.9rem;
   font-weight: 400;
-  color: rgb(241, 241, 241);
+  color:black;
   border-bottom: 0.8px solid rgb(235, 234, 234);
 }
 
@@ -669,7 +719,7 @@ hr {
   align-items: center;
 }
 
-.item-info > * {
+.item-info>* {
   margin-right: 8px;
 }
 
@@ -697,7 +747,7 @@ hr {
   color: rgb(103, 201, 136);
 }
 
-.item-info > * {
+.item-info>* {
   margin-right: 8px;
 }
 
@@ -762,37 +812,6 @@ hr {
   transform: scale(0.7);
   color: rgb(65, 65, 65);
 }
-
-.watchlist-number {
-  height: 6%;
-  width: 32%;
-  box-sizing: border-box;
-  position: fixed;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  bottom: 1px;
-  padding: 20px 20px 20px 0;
-  left: 0;
-  border: 1px solid rgb(231, 231, 231);
-  z-index: 5;
-  background: #fff;
-}
-
-.watchlist-number ul {
-  list-style-type: none;
-}
-
-.watchlist-number ul li {
-  display: inline-block;
-  padding: 10px 20px;
-  border-right: 1px solid rgb(231, 231, 231);
-}
-
-.watchlist-number ul li:nth-child(1) {
-  color: rgb(223, 73, 73);
-}
-
 .settings {
   transform: scale(0.8);
   color: rgb(105, 105, 105);
@@ -808,7 +827,7 @@ hr {
   background-color: #f3f3f3;
 }
 
-.list li:hover > .actions {
+.list li:hover>.actions {
   display: flex;
   cursor: move;
 }
@@ -823,13 +842,6 @@ hr {
   top: 0;
   left: 0;
 }
-
-.watchlist-number ul li:hover {
-  color: rgb(245, 104, 52);
-  cursor: pointer;
-  background: rgb(243, 243, 243);
-}
-
 .settings:hover {
   cursor: pointer;
 }
@@ -837,5 +849,3 @@ hr {
 .action:hover {
   background-color: rgb(212, 212, 212);
 }
-
-

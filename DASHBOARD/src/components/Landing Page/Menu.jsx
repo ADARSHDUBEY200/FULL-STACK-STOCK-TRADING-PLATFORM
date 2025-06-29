@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -10,7 +12,7 @@ const Menu = () => {
 
   };
 
-  const handleProfileClick = (index) => {
+  const handleProfileClick = () => {
     setIsProfileDropDown(!isProfileDropDown);
 
   }
@@ -25,7 +27,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/"}
+              to={"/home/summary"}
               onClick={() => handleMenuClick(1)}
               className={selectedMenu == 1 ? activeMenClass : menuClass}>
               <p >Dashboard</p>
@@ -34,7 +36,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/orders"}
+              to={"/home/orders"}
               onClick={() => handleMenuClick(2)}
               className={selectedMenu == 2 ? activeMenClass : menuClass}>
               <p >Orders</p>
@@ -43,7 +45,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/holdings"}
+              to={"/home/holdings"}
               onClick={() => handleMenuClick(3)}
               className={selectedMenu == 3 ? activeMenClass : menuClass}>
               <p >Holdings</p>
@@ -52,7 +54,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/positions"}
+              to={"/home/positions"}
               onClick={() => handleMenuClick(4)}
               className={selectedMenu == 4 ? activeMenClass : menuClass}>
               <p >Positions</p>
@@ -61,7 +63,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/funds"}
+              to={"/home/funds"}
               onClick={() => handleMenuClick(5)}
               className={selectedMenu == 5 ? activeMenClass : menuClass}>
               <p >Funds</p>
@@ -70,7 +72,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/app"}
+              to={"/home/app"}
               onClick={() => handleMenuClick(6)}
               className={selectedMenu == 6 ? activeMenClass : menuClass}>
               <p >Apps</p>
@@ -78,9 +80,24 @@ const Menu = () => {
           </li>
         </ul>
         <div className='profile' onClick={handleProfileClick}>
-         <div className='avatar'>ZU</div>
-         <p className='username'>USERID</p>
+          <div className='content'>
+            <div className='avatar'>ZU</div>
+            <p className='username'>USERID</p>
+          </div>
+          {isProfileDropDown == true ? <>
+            <div class="dropdown-content">
+              <div className='drop-main-content'>
+                <LogoutIcon />
+                <span>LogOut</span>
+              </div>
+              <div className='drop-main-content'>
+                <AccountBoxIcon />
+                <span>Profile</span>
+              </div>
+            </div>
+          </> : <></>}
         </div>
+
       </div>
     </div>
   )

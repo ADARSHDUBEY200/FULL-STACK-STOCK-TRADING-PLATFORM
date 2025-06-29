@@ -1,3 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
 .nav-link{
   margin-left: 40px;
+}
+
+.copilotKitHeader{
+  background-color: #488bf0 !important ;
+  color: white !important;
+}
+
+.copilotKitHeader closeIcon {
+  background-color: white !important;
+}
+
+.copilotKitButton{
+  background-color: #0d6efd !important;
+  border: #0d6efd  !important;
+}
+
+.copilotKitUserMessage{
+  background-color: #0d6efd !important;
+  color: white !important;
 }

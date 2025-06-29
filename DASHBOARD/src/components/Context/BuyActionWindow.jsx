@@ -1,38 +1,46 @@
 import React, { useContext, useState } from 'react'
-import { Link } from "react-router-dom"
-import { GeneralContext,GeneralContextProvider } from './GeneralContext'
+import { GeneralContext } from './GeneralContext'
 import "./BuyActionWindow.css"
 import axios from "axios"
 
-const BuyActionWindow = ({uid}) => {
-    const [stockQuantity,setStockQuantity]=useState(1);
-    const [stockPrice,setStockPrice]=useState(0);
+const BuyActionWindow = () => {
+    const [stockQuantity, setStockQuantity] = useState(1);
+    const [stockPrice, setStockPrice] = useState(0);
 
 
-    const generalContext=useContext(GeneralContext);
+    const generalContext = useContext(GeneralContext);
+    const watchlistId = generalContext.selectedStockID;
+    console.log(watchlistId);
+    console.log("Ye run kar raha hai")
 
-    const handleBuyClick=(e)=>{
-        axios.post("http://localhost:3002/newOrder",{
-            name:uid,
-            qty:stockQuantity,
-            price:stockPrice,
-            mode:"BUY"
-        })
+    const handleBuyClick = async () => {
+        try {
+            await axios.post("http://localhost:3000/newOrder", {
+                name: generalContext.selectedStockName,
+                qty: stockQuantity,
+                price: stockPrice,
+                mode: "BUY"
+            });
 
-        generalContext.handleCloseBuyWindow();
+            await axios.post("http://localhost:3000/holdings", { watchlistId })
 
-        
+            generalContext.handleCloseBuyWindow();
+
+
+        } catch (error) {
+            console.log("SomeThing Wrong in the BuyAction window is :", error.message);
+        }
+
     }
-   
 
-    const handleCancelClick=()=>{
+    const handleCancelClick = () => {
         generalContext.handleCloseBuyWindow();
 
     }
 
     return (
         <div className="container" id="buy-window" draggable="true">
-          <p>STOCK IS: {uid}</p>
+            <p>STOCK IS: {generalContext.selectedStockName}</p>
             <div className="regular-order">
                 <div className="inputs">
                     <fieldset>
@@ -42,7 +50,7 @@ const BuyActionWindow = ({uid}) => {
                             name="qty"
                             id="qty"
                             value={stockQuantity}
-                            onChange={(e)=>{setStockQuantity(e.target.value)}}
+                            onChange={(e) => { setStockQuantity(e.target.value) }}
 
                         />
                     </fieldset>
@@ -54,7 +62,7 @@ const BuyActionWindow = ({uid}) => {
                             id="price"
                             step="0.05"
                             value={stockPrice}
-                            onChange={(e)=>{setStockPrice(e.target.value)}}
+                            onChange={(e) => { setStockPrice(e.target.value) }}
 
 
                         />

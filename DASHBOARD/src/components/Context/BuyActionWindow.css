@@ -79,6 +79,10 @@
     top: 10%;
     padding: 0 20px;
   }
+
+  .buttons button {
+    cursor: pointer;
+  }
   
   .buttons span {
     font-size: 0.8rem;

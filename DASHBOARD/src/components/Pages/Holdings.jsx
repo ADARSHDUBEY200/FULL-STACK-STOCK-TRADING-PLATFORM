@@ -5,14 +5,31 @@ import { VerticalGraph } from "./VerticalGraph";
 
 const Holdings = () => {
   const [allHoldings, setallHoldings] = useState([]);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    axios.get("http://localhost:3000/holdings").then((res) => {
+    axios.get("http://localhost:3000/holdings", { headers: { Authorization: `Bearer ${token}` } }).then((res) => {
+      console.log("This is the all holdings data", res.data);
       setallHoldings(res.data);
     })
 
 
   }, [])
+
+  const handleSellClick = async (stock) => {
+    console.log("The id after calling the sell button is : ", stock);
+    await axios.post("http://localhost:3000/newOrder", {
+      name: stock.name,
+      qty: stock.qty,
+      price: stock.price,
+      mode: "SELL",
+      token: token
+    });
+
+    const response =  await axios.delete(`http://localhost:3000/holdings/${stock._id}`);
+    console.log(response);
+    setallHoldings(response.data);
+  }
 
   // const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   const labels = allHoldings.map((subArray) => subArray["name"]);
@@ -63,7 +80,7 @@ const Holdings = () => {
               <th>P&amp;L</th>
               <th>Net chg.</th>
               <th>Day chg.</th>
-              <th style={{textAlign : "center"}}>Sell</th>
+              <th style={{ textAlign: "center" }}>Sell</th>
             </tr>
           </thead>
           <tbody>
@@ -85,10 +102,10 @@ const Holdings = () => {
                   </td>
                   <td className={profClass}>{stock.net}</td>
                   <td className={dayClass}>{stock.day}</td>
-                  <td><button style={{backgroundColor:" rgb(237, 101, 101)", color : "white", fontWeight : "bold", padding : "0.5rem 2rem 0.5rem 2rem", border : "none", borderRadius : "1rem"}}>sell</button></td>
+                  <td><button onClick={() => handleSellClick(stock)} style={{ backgroundColor: " rgb(237, 101, 101)", color: "white", fontWeight: "bold", padding: "0.5rem 2rem 0.5rem 2rem", border: "none", borderRadius: "1rem" , cursor: "pointer"}}>sell</button></td>
                 </tr>
               );
-              
+
             })}
           </tbody>
         </table>

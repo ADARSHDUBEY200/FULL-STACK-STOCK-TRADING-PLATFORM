@@ -17,6 +17,11 @@ const Menu = () => {
 
   }
 
+  const handleLogout = ()=>{
+    localStorage.removeItem("token");
+    window.location.href = "http://localhost:5173/signup"
+  }
+
   const menuClass = "menu";
   const activeMenClass = "menu selected";
   return (
@@ -86,7 +91,7 @@ const Menu = () => {
           </div>
           {isProfileDropDown == true ? <>
             <div class="dropdown-content">
-              <div className='drop-main-content'>
+              <div className='drop-main-content' onClick={handleLogout}>
                 <LogoutIcon />
                 <span>LogOut</span>
               </div>

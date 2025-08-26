@@ -30,7 +30,7 @@ const Signup = () => {
     console.log(message);
     
     if(success){
-      window.location.href = `http://localhost:5174/?token=${token}`
+      window.location.href = `http://localhost:5174/home?token=${token}`
     }
 
   }

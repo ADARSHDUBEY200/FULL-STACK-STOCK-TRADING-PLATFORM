@@ -3,6 +3,7 @@ const bcrypt=require("bcrypt")
 
 const {userSchema}=require("../schemas/UserSchema");
 
-module.exports = new model("User", userSchema);
+const User = new model("User", userSchema);
+module.exports = {User};
 
 

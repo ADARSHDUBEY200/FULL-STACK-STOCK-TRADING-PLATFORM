@@ -4,7 +4,7 @@
 
 ## 🚀 Overview
 
- Full-STACK-STOCK-TRADING-PLATFORM is a platform that allows users to trade, analyze market trends, and manage their portfolios with a modern and secure architecture.
+Full-STACK-STOCK-TRADING-PLATFORM is a platform that allows users to trade, analyze market trends, and manage their portfolios with a modern and secure architecture.
 
 The platform integrates Razorpay Payment Gateway for seamless deposits & withdrawals, provides a real-time trading dashboard, and uses Redis caching to boost performance.
 
@@ -51,6 +51,8 @@ FULL-STACK-STOCK-TRADING-PLATFORM provides the tools and resources you need to n
 
 * Scalable Backend – Node.js + Express.js with MongoDB
 
+---
+
 # 🏗 Architecture
 ```
                    ┌────────────────────────┐
@@ -74,7 +76,7 @@ FULL-STACK-STOCK-TRADING-PLATFORM provides the tools and resources you need to n
                    │ Redis + MongoDB         │
                    └────────────────────────┘
 ```
-
+---
 # 🛠️ Tech Stack
 
 ## 🎨 Frontend (User + Dashboard)
@@ -113,7 +115,7 @@ FULL-STACK-STOCK-TRADING-PLATFORM provides the tools and resources you need to n
 
 * Git & GitHub – Version control
 
-
+---
 ## 📦 Key Dependencies
 
 ```
@@ -312,6 +314,111 @@ passport-local-mongoose: ^8.0.0
     │   └── main.jsx
     └── vite.config.js
 ```
+---
+
+## ⚙️ Local Setup Instructions  
+
+### 🔑 Prerequisites  
+- **Node.js 18+**  
+- **Docker & Docker Compose** (recommended)  
+- **MongoDB** (local installation or Atlas account)  
+- **Google Cloud Console** (for OAuth setup)  
+- **Google AI Studio account** (for Gemini API key)  
+
+---
+
+### 🐳1st Way: Docker Development (Recommended)  
+
+1️⃣ Clone the repository  
+```bash
+git clone <your-repo-url>
+cd FULL-STACK-STOCK-TRADING-PLATFORM
+```
+2️⃣ Set up environment variables
+```bash
+Create .env file in server/:
+NODE_ENV=development
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_32_characters_minimum
+OAUTH_CLIENT_ID=your_google_oauth_client_id
+OAUTH_CLIENT_SECRET=your_google_oauth_client_secret
+GEMINI_API_KEY=your_gemini_api_key
+
+Create .env file in client/:
+VITE_API_URL=http://localhost:3000
+```
+
+3️⃣ Run with Docker
+```bash
+# Update docker-compose.yml with your environment variables
+docker-compose up --build
+```
+
+4️⃣ Access the application
+```bash
+Frontend: http://localhost:5173
+Backend : http://localhost:5174
+Backend API: http://localhost:3000
+```
+---
+
+### 🐳2nd Way: Run the app manually
+Install dependencies
+```bash
+# Backend dependencies
+cd SERVER
+npm install
+
+# Frontend dependencies
+cd CLIENT
+npm install
+
+#Dashboard dependencies
+cs DASHBOARD
+npm install
+```
+Set up environment variables (same as Docker option)
+
+Start services manually
+
+### Terminal 1: Start frontend
+```bash
+cd FRONTEND
+npm run dev
+```
+
+### Terminal 2: Start backend
+```
+cd SERVER
+nodemon index.js
+```
+### Terminal 3: Start Dashbaord
+```
+cd DASHBOARD
+npm run dev 
+```
+
+### Access Your Application
+```bash
+Access the application
+Frontend: http://localhost:5173
+DASHBOARD: http://localhost:5174
+Backend API: http://localhost:3000
+```
+---
+### Required Service Setup
+
+Google AI Setup
+Go to Google AI Studio
+Create an API key for Gemini
+Add the key to your environment variables
+
+### Database Setup
+
+MongoDB Atlas: Create a database and get connection string
+
+---
 
 ## 👥 Contributing
 
@@ -329,6 +436,3 @@ Please ensure your code follows the project's style guidelines and includes test
 ## 📜 License
 
 This project is licensed under the ISC License.
-
----
-*This README was generated with ❤️ by ReadmeBuddy*

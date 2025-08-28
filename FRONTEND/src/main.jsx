@@ -17,6 +17,7 @@ import {CopilotPopup} from "@copilotkit/react-ui"
 import "@copilotkit/react-ui/styles.css";
 // dotenv.config();
 const ApiKey = import.meta.env.VITE_COPILOT_API_KEY;
+console.log(ApiKey);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>

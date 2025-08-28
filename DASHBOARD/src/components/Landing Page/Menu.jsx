@@ -32,7 +32,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/home/summary"}
+              to={"/summary"}
               onClick={() => handleMenuClick(1)}
               className={selectedMenu == 1 ? activeMenClass : menuClass}>
               <p >Dashboard</p>
@@ -41,7 +41,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/home/orders"}
+              to={"/orders"}
               onClick={() => handleMenuClick(2)}
               className={selectedMenu == 2 ? activeMenClass : menuClass}>
               <p >Orders</p>
@@ -50,7 +50,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/home/holdings"}
+              to={"/holdings"}
               onClick={() => handleMenuClick(3)}
               className={selectedMenu == 3 ? activeMenClass : menuClass}>
               <p >Holdings</p>
@@ -59,7 +59,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/home/positions"}
+              to={"/positions"}
               onClick={() => handleMenuClick(4)}
               className={selectedMenu == 4 ? activeMenClass : menuClass}>
               <p >Positions</p>
@@ -68,7 +68,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/home/funds"}
+              to={"/funds"}
               onClick={() => handleMenuClick(5)}
               className={selectedMenu == 5 ? activeMenClass : menuClass}>
               <p >Funds</p>
@@ -77,7 +77,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/home/app"}
+              to={"/app"}
               onClick={() => handleMenuClick(6)}
               className={selectedMenu == 6 ? activeMenClass : menuClass}>
               <p >Apps</p>

@@ -201,6 +201,10 @@ hr {
   justify-content: space-between;
 }
 
+.dropdown-content .drop-main-content:hover{
+  color:  rgb(223, 73, 73);
+}
+
 /* sudo selectors */
 
 .menu:hover {

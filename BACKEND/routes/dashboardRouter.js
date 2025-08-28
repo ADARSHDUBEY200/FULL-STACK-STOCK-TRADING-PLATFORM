@@ -1,10 +1,11 @@
 const express = require("express")
 const router = express.Router();
-const {Holdings,Positions,NewOrder, NewOrderSave, WatchList, HoldingSave} = require("../controllers/dashboardController.js")
+const {Holdings,Positions,NewOrder, NewOrderSave, WatchList, HoldingSave, HoldingDelete} = require("../controllers/dashboardController.js")
 
 router.get("/watchlist",WatchList )
 router.get("/holdings",Holdings);
 router.post("/holdings",HoldingSave)
+router.delete("/holdings/:id", HoldingDelete)
 router.get("/positions",Positions);
 router.get("/newOrder",NewOrder)
 router.post("/newOrder",NewOrderSave);

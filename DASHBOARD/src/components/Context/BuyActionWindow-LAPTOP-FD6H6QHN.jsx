@@ -34,7 +34,39 @@ const BuyActionWindow = () => {
                 "description": "Test Transaction",
                 "image": "https://example.com/your_logo",
                 "order_id": data.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-                "callback_url": "http://localhost:3000/paymentVerification",
+                handler: async function (res) {
+                    // 👇 This runs after successful payment
+                    console.log("The handler is called");
+                    const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = res;
+
+                    try {
+                        // ✅ Now YOU call backend manually
+                        const verifyRes = await axios.post("http://localhost:3000/paymentVerification", {
+                            razorpay_payment_id,
+                            razorpay_order_id,
+                            razorpay_signature,
+                        });
+
+                        if (verifyRes.data.success) {
+                            // Payment verified, now create order
+                            await axios.post("http://localhost:3000/newOrder", {
+                                name: generalContext.selectedStockName,
+                                qty: stockQuantity,
+                                price: stockPrice,
+                                mode: "BUY",
+                                token: token,
+                            });
+
+                            await axios.post("http://localhost:3000/holdings", { watchlistId, token });
+                            generalContext.handleCloseBuyWindow();
+                        } else {
+                            console.error("❌ Payment verification failed");
+                        }
+                    } catch (err) {
+                        console.error("Error verifying payment:", err.message);
+                    }
+                },
+
                 "prefill": {
                     "name": "Gaurav Kumar",
                     "email": "gaurav.kumar@example.com",
@@ -50,20 +82,6 @@ const BuyActionWindow = () => {
 
             var rzp1 = new window.Razorpay(options);
             rzp1.open();
-
-
-            await axios.post("http://localhost:3000/newOrder", {
-                name: generalContext.selectedStockName,
-                qty: stockQuantity,
-                price: stockPrice,
-                mode: "BUY",
-                token: token
-            });
-
-            await axios.post("http://localhost:3000/holdings", { watchlistId, token });
-
-
-            generalContext.handleCloseBuyWindow();
 
 
         } catch (error) {

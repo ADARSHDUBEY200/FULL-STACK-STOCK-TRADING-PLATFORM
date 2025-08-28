@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom'
 function Universe() {
   return (
     <div className="container mt-5">
@@ -34,12 +34,12 @@ function Universe() {
           <img src="media/images/smallcaseLogo.png" />
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
-        <button
+        <Link to="/signup"><button
           className="p-2 btn btn-primary fs-5 mb-5"
           style={{ width: "20%", margin: "0 auto" }}
         >
           Signup Now
-        </button>
+        </button></Link>
       </div>
     </div>
   );

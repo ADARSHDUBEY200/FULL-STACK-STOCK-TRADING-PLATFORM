@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 const Orders = () => {
 
   const [orders, setOrders] = useState([]);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const request = async () => {
-      const result = await axios.get("http://localhost:3000/newOrder");
+      const result = await axios.get("http://localhost:3000/newOrder", { headers: {Authorization: `Bearer ${token}`}});
       setOrders(result.data);
       console.log(orders);
     }
@@ -31,12 +32,13 @@ const Orders = () => {
           </thead>
           <tbody>
             {orders.map((stock, index) => {
+              const styles = stock.mode == "BUY" ? {fontSize : "1rem", color: "green"} : {fontSize : "1rem", color: "RED"}
               return (
                 <tr key={index}>
                   <td>{stock.name}</td>
                   <td>{stock.qty}</td>
                   <td>{stock.price}</td>
-                  <td style={{fontSize : "1rem", color: "green"}}>{stock.mode}</td>
+                  <td style={styles}>{stock.mode}</td>
                 </tr>
               );
             })}

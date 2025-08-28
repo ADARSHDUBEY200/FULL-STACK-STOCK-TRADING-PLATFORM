@@ -2,30 +2,121 @@
 
 ![License](https://img.shields.io/badge/license-ISC-green)
 
-## 📝 Description
+## 🚀 Overview
 
-Embark on your journey to financial mastery with FULL-STACK-STOCK-TRADING-PLATFORM, a cutting-edge platform meticulously crafted with Express.js to deliver a seamless and intuitive stock trading experience. This platform is more than just a trading tool; it's a comprehensive ecosystem designed to empower both novice and seasoned investors.
+Full-STACK-STOCK-TRADING-PLATFORM is a platform that allows users to trade, analyze market trends, and manage their portfolios with a modern and secure architecture.
 
-Key Features:
+The platform integrates Razorpay Payment Gateway for seamless deposits & withdrawals, provides a real-time trading dashboard, and uses Redis caching to boost performance.
 
-*   Robust Database Integration: Securely manage your portfolio, track transaction history, and analyze performance with our integrated database system.
-*   Rigorous Testing Framework: Trade with confidence knowing that our platform undergoes continuous and thorough testing, ensuring reliability and stability.
-*   User-Friendly Web Interface: Access real-time market data, execute trades, and manage your account effortlessly through our intuitive web interface.
+It follows a modular structure with three main services:
+
+* Frontend → User trading interface (localhost:5173)
+
+* Dashboard → Admin & analytics dashboard (localhost:5174)
+
+* Backend API → Business logic & data layer (localhost:3000)
 
 FULL-STACK-STOCK-TRADING-PLATFORM provides the tools and resources you need to navigate the complexities of the stock market and achieve your financial goals. Experience the future of stock trading today!
 
-## ✨ Features
+# ✨ Features
+## 🎯 Core Trading Functionality
 
-- 🗄️ Database
-- 🧪 Testing
-- 🕸️ Web
+* User Authentication & Authorization – Secure login and registration with JWT
 
+* Buy & Sell Stocks – Execute trades with real-time updates
 
-## 🛠️ Tech Stack
+* Portfolio Management – Track holdings, balance, and profit/loss
 
-- 🚀 Express.js
+* Payment Gateway – Integrated Razorpay for secure deposits & withdrawals
 
+* Order History – Detailed logs of user transactions
 
+## 📊 Dashboard Features
+
+* Admin Controls – Manage users, stocks, and transactions
+
+* Analytics – Track trading volume, revenue, and user engagement
+
+* Real-Time Updates – Cached market data with Redis
+
+## ⚙️ Technical Highlights
+
+* Modular Architecture – Separate frontend, dashboard, and backend services
+
+* Caching with Redis – Faster data retrieval & reduced database load
+
+* Secure APIs – JWT authentication, input validation
+
+* Responsive Design – Modern UI with React & BootStrap
+
+* Scalable Backend – Node.js + Express.js with MongoDB
+
+---
+
+# 🏗 Architecture
+```
+                   ┌────────────────────────┐
+                   │        Frontend         │
+                   │ React.js + TailwindCSS  │
+                   │ Razorpay Integration    │
+                   └───────────┬────────────┘
+                               │
+                               ▼
+                   ┌────────────────────────┐
+                   │   Dashboard (Admin)    │
+                   │ React.js + Analytics   │
+                   │                        │
+                   └───────────┬────────────┘
+                               │
+                               ▼
+                   ┌────────────────────────┐
+                   │        Backend          │
+                   │ Node.js + Express.js    │
+                   │ JWT + Razorpay API      │
+                   │ Redis + MongoDB         │
+                   └────────────────────────┘
+```
+---
+# 🛠️ Tech Stack
+
+## 🎨 Frontend (User + Dashboard)
+
+* React.js 18 – Component-based UI
+
+* React Router v6 – Navigation
+
+* Axios – API requests
+
+* BootStrap – Styling
+
+* Razorpay SDK – Payment integration
+
+## ⚙️ Backend
+
+* Node.js 18+ – JavaScript runtime
+
+* Express.js – API framework
+
+* MongoDB + Mongoose – Database & ODM
+
+* Redis – Caching system
+
+* JWT Authentication – Secure login & sessions
+
+* Razorpay API – Payment handling
+
+## 🛠 Development Tools
+
+* Nodemon – Development server auto-restart
+
+* dotenv – Environment variable management
+
+* ESLint – Code linting
+
+* Git & GitHub – Version control
+
+---
+>>>>>>> 84888c494e6c72d1b11936fae4774038bbf85e0c
 ## 📦 Key Dependencies
 
 ```
@@ -41,6 +132,7 @@ passport-local: ^1.0.0
 passport-local-mongoose: ^8.0.0
 ```
 
+<<<<<<< HEAD
 ## 🚀 Run Commands
 
 - **start**: `npm run start`
@@ -53,6 +145,8 @@ passport-local-mongoose: ^8.0.0
 - **release**: `make release`
 
 
+=======
+>>>>>>> 84888c494e6c72d1b11936fae4774038bbf85e0c
 ## 📁 Project Structure
 
 ```
@@ -236,6 +330,114 @@ passport-local-mongoose: ^8.0.0
     │   └── main.jsx
     └── vite.config.js
 ```
+<<<<<<< HEAD
+=======
+---
+
+## ⚙️ Local Setup Instructions  
+
+### 🔑 Prerequisites  
+- **Node.js 18+**  
+- **Docker & Docker Compose** (recommended)  
+- **MongoDB** (local installation or Atlas account)  
+- **Google Cloud Console** (for OAuth setup)  
+- **Google AI Studio account** (for Gemini API key)  
+
+---
+
+### 🐳1st Way: Docker Development (Recommended)  
+
+1️⃣ Clone the repository  
+```bash
+git clone <your-repo-url>
+cd FULL-STACK-STOCK-TRADING-PLATFORM
+```
+2️⃣ Set up environment variables
+```bash
+Create .env file in server/:
+NODE_ENV=development
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_32_characters_minimum
+OAUTH_CLIENT_ID=your_google_oauth_client_id
+OAUTH_CLIENT_SECRET=your_google_oauth_client_secret
+GEMINI_API_KEY=your_gemini_api_key
+
+Create .env file in client/:
+VITE_API_URL=http://localhost:3000
+```
+
+3️⃣ Run with Docker
+```bash
+# Update docker-compose.yml with your environment variables
+docker-compose up --build
+```
+
+4️⃣ Access the application
+```bash
+Frontend: http://localhost:5173
+Backend : http://localhost:5174
+Backend API: http://localhost:3000
+```
+---
+
+### 🐳2nd Way: Run the app manually
+Install dependencies
+```bash
+# Backend dependencies
+cd SERVER
+npm install
+
+# Frontend dependencies
+cd CLIENT
+npm install
+
+#Dashboard dependencies
+cs DASHBOARD
+npm install
+```
+Set up environment variables (same as Docker option)
+
+Start services manually
+
+### Terminal 1: Start frontend
+```bash
+cd FRONTEND
+npm run dev
+```
+
+### Terminal 2: Start backend
+```
+cd SERVER
+nodemon index.js
+```
+### Terminal 3: Start Dashbaord
+```
+cd DASHBOARD
+npm run dev 
+```
+
+### Access Your Application
+```bash
+Access the application
+Frontend: http://localhost:5173
+DASHBOARD: http://localhost:5174
+Backend API: http://localhost:3000
+```
+---
+### Required Service Setup
+
+Google AI Setup
+Go to Google AI Studio
+Create an API key for Gemini
+Add the key to your environment variables
+
+### Database Setup
+
+MongoDB Atlas: Create a database and get connection string
+
+---
+>>>>>>> 84888c494e6c72d1b11936fae4774038bbf85e0c
 
 ## 👥 Contributing
 
@@ -253,6 +455,9 @@ Please ensure your code follows the project's style guidelines and includes test
 ## 📜 License
 
 This project is licensed under the ISC License.
+<<<<<<< HEAD
 
 ---
 *This README was generated with ❤️ by ReadmeBuddy*
+=======
+>>>>>>> 84888c494e6c72d1b11936fae4774038bbf85e0c

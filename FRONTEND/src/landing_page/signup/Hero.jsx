@@ -26,7 +26,7 @@ const Hero = () => {
                    }
 
                   {
-                    isclicked ? <button className='btn btn-link' onClick={handleClicked}>Create new Account ? <b>SingIn</b></button> : <button  className='btn btn-link' onClick={handleClicked}>Already have an account ? <b>LogIn</b> </button> 
+                    isclicked ? <button className='btn btn-link' onClick={handleClicked} style={{textDecoration:"none"}}>Don't Have An Account? <b>SingIn</b></button> : <button  className='btn btn-link' onClick={handleClicked} style={{textDecoration:"none"}}>Already have an account? <b>LogIn</b> </button> 
                   }
 
                   

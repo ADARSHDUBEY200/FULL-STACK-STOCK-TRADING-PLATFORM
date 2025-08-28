@@ -21,7 +21,7 @@ const Signup = () => {
 
     event.preventDefault();
 
-    const response = await axios.post("http://localhost:3000/signup", {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
       ...formData
     })
 
@@ -30,7 +30,7 @@ const Signup = () => {
     console.log(message);
     
     if(success){
-      window.location.href = `http://localhost:5174/home?token=${token}`
+      window.location.href = `${import.meta.env.VITE_DASHBOARD_URL}?token=${token}`
     }
 
   }

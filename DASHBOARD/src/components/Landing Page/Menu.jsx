@@ -19,7 +19,7 @@ const Menu = () => {
 
   const handleLogout = ()=>{
     localStorage.removeItem("token");
-    window.location.href = "http://localhost:5173/signup"
+    window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/signup`
   }
 
   const menuClass = "menu";
@@ -41,19 +41,19 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/orders"}
+              to={"/holdings"}
               onClick={() => handleMenuClick(2)}
               className={selectedMenu == 2 ? activeMenClass : menuClass}>
-              <p >Orders</p>
+              <p >holdings</p>
             </Link>
           </li>
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to={"/holdings"}
+              to={"/orders"}
               onClick={() => handleMenuClick(3)}
               className={selectedMenu == 3 ? activeMenClass : menuClass}>
-              <p >Holdings</p>
+              <p >orders</p>
             </Link>
           </li>
           <li>

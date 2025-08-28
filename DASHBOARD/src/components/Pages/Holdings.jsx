@@ -8,7 +8,7 @@ const Holdings = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    axios.get("http://localhost:3000/holdings", { headers: { Authorization: `Bearer ${token}` } }).then((res) => {
+    axios.get(`${import.meta.env.VITE_API_URL}/holdings`, { headers: { Authorization: `Bearer ${token}` } }).then((res) => {
       console.log("This is the all holdings data", res.data);
       setallHoldings(res.data);
     })
@@ -18,7 +18,7 @@ const Holdings = () => {
 
   const handleSellClick = async (stock) => {
     console.log("The id after calling the sell button is : ", stock);
-    await axios.post("http://localhost:3000/newOrder", {
+    await axios.post(`${import.meta.env.VITE_API_URL}/newOrder`, {
       name: stock.name,
       qty: stock.qty,
       price: stock.price,
@@ -26,7 +26,7 @@ const Holdings = () => {
       token: token
     });
 
-    const response =  await axios.delete(`http://localhost:3000/holdings/${stock._id}`);
+    const response =  await axios.delete(`${import.meta.env.VITE_API_URL}/holdings/${stock._id}`);
     console.log(response);
     setallHoldings(response.data);
   }

@@ -16,7 +16,7 @@ const Home = () => {
       if (!token) {
         token = localStorage.getItem("token");
         if (!token) {
-          window.location.href = "http://localhost:5173/signup"
+          window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/signup`
         }
       }
 
@@ -25,7 +25,7 @@ const Home = () => {
         window.history.replaceState({}, "", "/");
       }
 
-      const response = await axios.post("http://localhost:3000/", {}, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -39,7 +39,7 @@ const Home = () => {
         console.log("The user is Logged in");
       } else {
         localStorage.removeItem("token");
-        window.location.href = "http://localhost:5173/signup"
+        window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/signup`
       }
     }
 

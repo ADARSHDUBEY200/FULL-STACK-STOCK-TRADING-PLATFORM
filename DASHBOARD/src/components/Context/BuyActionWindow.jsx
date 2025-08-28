@@ -17,9 +17,9 @@ const BuyActionWindow = () => {
     const handleBuyClick = async () => {
         try {
 
-            const response = await axios.get("http://localhost:3000/api/key");
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/key`);
 
-            const data = await axios.post("http://localhost:3000/checkout", {
+            const data = await axios.post(`${import.meta.env.VITE_API_URL}/checkout`, {
                 amount: stockPrice
             });
             console.log(data);
@@ -40,7 +40,7 @@ const BuyActionWindow = () => {
 
                     try {
                         // ✅ Now YOU call backend manually
-                        const verifyRes = await axios.post("http://localhost:3000/paymentVerification", {
+                        const verifyRes = await axios.post(`${import.meta.env.VITE_API_URL}/paymentVerification`, {
                             razorpay_payment_id,
                             razorpay_order_id,
                             razorpay_signature,
@@ -48,7 +48,7 @@ const BuyActionWindow = () => {
 
                         if (verifyRes.data.success) {
                             // Payment verified, now create order
-                            await axios.post("http://localhost:3000/newOrder", {
+                            await axios.post(`${import.meta.env.VITE_API_URL}/newOrder`, {
                                 name: generalContext.selectedStockName,
                                 qty: stockQuantity,
                                 price: stockPrice,
@@ -56,7 +56,7 @@ const BuyActionWindow = () => {
                                 token: token,
                             });
 
-                            await axios.post("http://localhost:3000/holdings", { watchlistId, token });
+                            await axios.post(`${import.meta.env.VITE_API_URL}/holdings`, { watchlistId, token });
                             generalContext.handleCloseBuyWindow();
                         } else {
                             console.error("❌ Payment verification failed");

@@ -338,17 +338,22 @@ cd FULL-STACK-STOCK-TRADING-PLATFORM
 ```
 2️⃣ Set up environment variables
 ```bash
-Create .env file in server/:
-NODE_ENV=development
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_32_characters_minimum
-OAUTH_CLIENT_ID=your_google_oauth_client_id
-OAUTH_CLIENT_SECRET=your_google_oauth_client_secret
-GEMINI_API_KEY=your_gemini_api_key
+Create .env file in BACKEND/:
 
-Create .env file in client/:
+MONGO_URL= <your mongoDB URL>
+TOKEN_KEY = <your secert key>
+KEY_ID = <your razorpay secret ID>
+KEY_SECRET = <your razorpay sceret key>
+
+Create .env file in FRONTEND/:
+VITE_COPILOT_API_KEY = <your openai api key>
 VITE_API_URL=http://localhost:3000
+VITE_DASHBOARD_URL=http://localhost:5174/
+
+Create .env file in /DASHBOARD:
+VITE_COPILOT_API_KEY = <your open ai key>
+VITE_API_URL = http://localhost:3000
+VITE_FRONTEND_URL = http://localhost:5173
 ```
 
 3️⃣ Run with Docker
@@ -360,7 +365,7 @@ docker-compose up --build
 4️⃣ Access the application
 ```bash
 Frontend: http://localhost:5173
-Backend : http://localhost:5174
+DASHBAORD : http://localhost:5174
 Backend API: http://localhost:3000
 ```
 ---

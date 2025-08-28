@@ -116,7 +116,7 @@ FULL-STACK-STOCK-TRADING-PLATFORM provides the tools and resources you need to n
 * Git & GitHub – Version control
 
 ---
->>>>>>> 84888c494e6c72d1b11936fae4774038bbf85e0c
+
 ## 📦 Key Dependencies
 
 ```
@@ -132,21 +132,6 @@ passport-local: ^1.0.0
 passport-local-mongoose: ^8.0.0
 ```
 
-<<<<<<< HEAD
-## 🚀 Run Commands
-
-- **start**: `npm run start`
-- **_no-target-specified**: `make _no-target-specified`
-- **list**: `make list`
-- **test**: `make test`
-- **_ensure-tag**: `make _ensure-tag`
-- **_ensure-changelog**: `make _ensure-changelog`
-- **_ensure-clean**: `make _ensure-clean`
-- **release**: `make release`
-
-
-=======
->>>>>>> 84888c494e6c72d1b11936fae4774038bbf85e0c
 ## 📁 Project Structure
 
 ```
@@ -330,8 +315,7 @@ passport-local-mongoose: ^8.0.0
     │   └── main.jsx
     └── vite.config.js
 ```
-<<<<<<< HEAD
-=======
+
 ---
 
 ## ⚙️ Local Setup Instructions  
@@ -437,7 +421,7 @@ Add the key to your environment variables
 MongoDB Atlas: Create a database and get connection string
 
 ---
->>>>>>> 84888c494e6c72d1b11936fae4774038bbf85e0c
+
 
 ## 👥 Contributing
 
@@ -455,9 +439,4 @@ Please ensure your code follows the project's style guidelines and includes test
 ## 📜 License
 
 This project is licensed under the ISC License.
-<<<<<<< HEAD
 
----
-*This README was generated with ❤️ by ReadmeBuddy*
-=======
->>>>>>> 84888c494e6c72d1b11936fae4774038bbf85e0c
